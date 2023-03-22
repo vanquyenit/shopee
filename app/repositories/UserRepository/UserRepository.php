@@ -36,4 +36,18 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
 
         return $this->model->where($column, $value)->first();
     }
+
+    public function getData($dataSearch)
+    {
+        $arrWhere = [];
+        if (isset($dataSearch['search'])) {
+            $arrWhere['title'] = $dataSearch['search'];
+        }
+        $keyword   = isset($dataSearch['search']) ? '%' . $dataSearch['search'] . '%' : '';
+        $result    = $this->model->where($arrWhere);
+        if ($keyword) {
+            $result->orWhere('title', 'LIKE', $keyword);
+        }
+        return $result->orderBy('created_at', 'DESC')->paginate(config('setting.limit.default'));
+    }
 }

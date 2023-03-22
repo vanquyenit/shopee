@@ -6,4 +6,6 @@ interface UserRepositoryInterface
     public function getDataByEmail($email);
 
     public function checkExists($column, $value, $id = null);
+
+    public function getData($dataSearch);
 }

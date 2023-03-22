@@ -1,4 +1,12 @@
 @extends('admin.layouts.layout')
+@section('footerscript')
+    @parent
+    {{ Html::script('plugins/jquery-mousewheel/jquery.mousewheel.js') }}
+    {{ Html::script('plugins/raphael/raphael.min.js') }}
+    {{ Html::script('plugins/jquery-mapael/jquery.mapael.min.js') }}
+    {{ Html::script('plugins/jquery-mapael/maps/usa_states.min.js') }}
+    {{ Html::script('dist/js/pages/dashboard2.js') }}
+@show
 @section('content')
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">

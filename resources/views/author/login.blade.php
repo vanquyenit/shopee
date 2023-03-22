@@ -13,26 +13,12 @@
         @show
     </head>
     <body class="hold-transition login-page">
-        @if(session()->has('error'))
-            <div class="alert alert-danger">
-                {{ session()->get('error') }}
-            </div>
-        @endif
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
         <!-- /.card-body -->
         <div class="login-box">
             <!-- /.login-logo -->
             <div class="card card-outline card-primary">
                 <div class="card-header text-center">
-                    <a href="../../index2.html" class="h1"><b>Admin</b>LTE</a>
+                    <a href="/" class="h1"><b>Admin</b>LTE</a>
                 </div>
                 <div class="card-body">
                     <p class="login-box-msg">Sign in to start your session</p>
@@ -46,7 +32,7 @@
                             </div>
                         </div>
                         @error('email')
-                            <div class="alert alert-danger mt--10">{{ $message }}</div>
+                            <div class="text-danger mt--10">{{ $message }}</div>
                         @enderror
                         <div class="input-group mb-3">
                             {{ Form::password('password', array('id' => 'password', "class" => "form-control", 'placeholder' => 'password')) }}
@@ -57,7 +43,7 @@
                             </div>
                         </div>
                         @error('password')
-                            <div class="alert alert-danger mt--10">{{ $message }}</div>
+                            <div class="text-danger mt--10">{{ $message }}</div>
                         @enderror
                         <div class="row">
                             <div class="col-8">
